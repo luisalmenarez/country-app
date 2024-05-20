@@ -4,13 +4,20 @@
 <section>
   <article>
     <!-- Search box -->
-    Búsquedas
+    <shared-search-box
+      (onValue)="searchByCapital($event)"
+      placeholder="Buscar por capital"
+    ></shared-search-box>
   </article>
 </section>
 
 <section>
   <article>
     <!-- Table results -->
-    Tabla de resultados
+    <ul>
+      <li *ngFor="let country of countries">
+        {{ country.capital }} - {{ country.population }}
+      </li>
+    </ul>
   </article>
 </section>
