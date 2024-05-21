@@ -7,7 +7,7 @@
 
 <ng-template #table>
   <table class="min-w-full divide-y mt-4 divide-gray-200">
-    <thead class="bg-gray-50">
+    <thead class="bg-gray-50 my-4">
       <tr>
         <th
           class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
@@ -17,12 +17,22 @@
         <th
           class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
         >
+          Icon
+        </th>
+        <th
+          class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
+        >
           Bandera
         </th>
         <th
           class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
         >
-          País
+          Nombre
+        </th>
+        <th
+          class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
+        >
+          Capital
         </th>
         <th
           class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
@@ -41,7 +51,16 @@
           <img [src]="country.flags.svg" [alt]="country.name.common" />
         </td>
         <td>
+          {{ country.name.common }}
+        </td>
+        <td>
           {{ country.capital }}
+        </td>
+        <td>
+          {{ country.population | number }}
+        </td>
+        <td>
+          <a href="/">Ver más</a>
         </td>
       </tr>
     </tbody>
