@@ -1,7 +1,24 @@
 <div
   *ngIf="countries.length === 0; else table"
-  class="flex items-center justify-center w-full text-black font-semibold mt-4 p-4 bg-amber-300 rounded-lg shadow"
+  class="flex items-center justify-center gap-2 w-full font-semibold mt-4 p-4 bg-orange-100 text-orange-700 rounded-lg"
 >
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="size-6 icon icon-tabler icons-tabler-outline icon-tabler-alert-square"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path
+      d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z"
+    />
+    <path d="M12 8v4" />
+    <path d="M12 16h.01" />
+  </svg>
   <h3>No hay países para mostrar</h3>
 </div>
 
