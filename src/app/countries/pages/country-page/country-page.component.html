@@ -1,1 +1,25 @@
-<p>country-page works!</p>
+<ng-template #loading>
+  <section class="flex flex-col items-center gap-6">
+    <img src="assets/loader.svg" width="150" height="150" alt="" />
+    <h4>Cargando datos por favor espere...</h4>
+  </section>
+</ng-template>
+
+<section *ngIf="country; else loading">
+  <article
+    class="w-full max-w-2xl bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+  >
+    <div class="flex flex-col items-center pb-10">
+      <h3>Bandera</h3>
+      <img
+        class="w-24 h-24 mb-3 rounded-full shadow-lg"
+        [src]="country.flags.svg"
+        [alt]="country.name.common"
+      />
+      <h5 class="text-xl font-medium text-gray-900 dark:text-white">
+        {{ country.name.common }}
+      </h5>
+      <div class="flex mt-4 md:mt-6"></div>
+    </div>
+  </article>
+</section>
