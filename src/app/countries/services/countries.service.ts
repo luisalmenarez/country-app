@@ -9,6 +9,10 @@ export class CountriesService {
 
   constructor(private http: HttpClient) {}
 
+  private getCountriesRequest(url: string): Observable<Country[]> {
+    return this.http.get<Country[]>(url).pipe(catchError(() => of([])));
+  }
+
   searchCountryByAlphaCode(code: string): Observable<Country | null> {
     const url = `${this.apiURL}/alpha/${code}`;
     return this.http.get<Country[]>(url).pipe(
@@ -20,18 +24,18 @@ export class CountriesService {
   // Search countries by capital
   searchCapital(query: string): Observable<Country[]> {
     const url = `${this.apiURL}/capital/${query}`;
-    return this.http.get<Country[]>(url).pipe(catchError(() => of([])));
+    return this.getCountriesRequest(url);
   }
 
   // Search countries by Country Name
   searchCountry(query: string): Observable<Country[]> {
     const url = `${this.apiURL}/name/${query}`;
-    return this.http.get<Country[]>(url).pipe(catchError(() => of([])));
+    return this.getCountriesRequest(url);
   }
 
   // Search countries by Region, África, América, Asia, Europa, Oceanía
   searchRegion(query: string): Observable<Country[]> {
     const url = `${this.apiURL}/region/${query}`;
-    return this.http.get<Country[]>(url).pipe(catchError(() => of([])));
+    return this.getCountriesRequest(url);
   }
 }
