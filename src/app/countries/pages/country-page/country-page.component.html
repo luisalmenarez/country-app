@@ -1,25 +1,68 @@
+<section *ngIf="country; else loading">
+  <article
+    class="flex flex-col md:flex-row items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+  >
+    <img
+      class="w-full md:w-2/5 object-cover rounded-t-lg md:rounded-l-lg md:rounded-t-none"
+      [src]="country.flags.svg"
+      alt="Flag of {{ country.name.common }}"
+    />
+    <div
+      class="flex flex-col justify-between p-4 leading-normal w-full md:w-2/3"
+    >
+      <h3
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        País: {{ country.name.common }}
+      </h3>
+      <h3
+        class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
+      >
+        Capital: {{ country.capital }}
+      </h3>
+      <h5
+        class="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+      >
+        Población: {{ country.population | number }}
+      </h5>
+      <div
+        class="flex flex-wrap gap-2 font-normal text-gray-700 dark:text-gray-400"
+      >
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["ara"].common }}
+        </span>
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["bre"].common }}
+        </span>
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["deu"].common }}
+        </span>
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["cym"].common }}
+        </span>
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["jpn"].common }}
+        </span>
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["kor"].common }}
+        </span>
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["per"].common }}
+        </span>
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["rus"].common }}
+        </span>
+        <span class="bg-gray-200 dark:bg-gray-600 p-1 rounded">
+          {{ country.translations["slk"].common }}
+        </span>
+      </div>
+    </div>
+  </article>
+</section>
+
 <ng-template #loading>
   <section class="flex flex-col items-center gap-6">
     <img src="assets/loader.svg" width="150" height="150" alt="" />
     <h4>Cargando datos por favor espere...</h4>
   </section>
 </ng-template>
-
-<section *ngIf="country; else loading">
-  <article
-    class="w-full max-w-2xl bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-  >
-    <div class="flex flex-col items-center pb-10">
-      <h3>Bandera</h3>
-      <img
-        class="w-24 h-24 mb-3 rounded-full shadow-lg"
-        [src]="country.flags.svg"
-        [alt]="country.name.common"
-      />
-      <h5 class="text-xl font-medium text-gray-900 dark:text-white">
-        {{ country.name.common }}
-      </h5>
-      <div class="flex mt-4 md:mt-6"></div>
-    </div>
-  </article>
-</section>
