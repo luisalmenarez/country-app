@@ -3,8 +3,9 @@
 <section>
   <article>
     <!-- Search box -->
+    <!-- (onValue)="searchByRegion($event)" -->
     <shared-search-box
-      (onValue)="searchByRegion($event)"
+      (onDebounce)="searchByRegion($event)"
       placeholder="Buscar por capital"
     ></shared-search-box>
   </article>
@@ -14,5 +15,6 @@
   <article>
     <!-- Table results -->
     <countries-table [countries]="countries"></countries-table>
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
   </article>
 </section>
